@@ -30,6 +30,15 @@ jobs:
       - name: test
         run:  rake test TESTOPTS="-v --no-show-detail-immediately" OSSL_MDEBUG=1
 
+      - name: install
+        run: rake install
+
+      - name: load
+        run: ruby -ropenssl -rdigest -e1 2> errors.txt || (cat errors.txt && exit 1)
+
+      - name: check usage produced no warnings
+        run: test ! -s errors.txt || (cat errors.txt && exit 1)
+
   test-windows:
     name: >-
       ${{ matrix.os }} ${{ matrix.ruby }}

@@ -10,6 +10,7 @@
   (See the file 'LICENCE'.)
 =end
 
+require 'digest'
 require 'openssl.so'
 
 require_relative 'openssl/bn'

@@ -313,8 +313,6 @@ ossl_digest_block_length(VALUE self)
 void
 Init_ossl_digest(void)
 {
-    rb_require("digest");
-
 #if 0
     mOSSL = rb_define_module("OpenSSL");
     eOSSLError = rb_define_class_under(mOSSL, "OpenSSLError", rb_eStandardError);
